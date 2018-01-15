@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 3.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Tyler Foster.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -64,7 +64,7 @@ def is_prime(n):
     return True
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch the above  is_prime  function - it has no TODO.
+    #   Do NOT touch the above  is_prime  function - it has no d.
     #   Do NOT copy code from this function.
     #
     # Instead, ** CALL ** this function as needed in the problems below.
@@ -137,6 +137,11 @@ def run_test_practice_problem3a():
 
 
 def practice_problem3a(circles):
+    multiplier = 1
+    for k in range(len(circles)):
+        multiplier = multiplier * circles[k].center.x
+    return multiplier
+
     """
     What comes in:  A sequence of rg.Circles.
     What goes out:  Returns the product of the x-coordinates
@@ -156,7 +161,7 @@ def practice_problem3a(circles):
       :type sequence: [rg.Circle]
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -225,6 +230,16 @@ def run_test_practice_problem3b():
 
 
 def practice_problem3b(sequence):
+    seq = sequence
+    for k in range(len(seq) - 1):
+        if seq[len(seq) - 1] == seq[k]:
+            return True
+    return False
+
+
+
+
+
     """
     What comes in: A non-empty sequence.
     What goes out: Returns True if the last item of the sequence
@@ -266,7 +281,7 @@ def practice_problem3b(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -327,6 +342,13 @@ def run_test_practice_problem3c():
 
 
 def practice_problem3c(sequence):
+    seq = sequence
+    empty = []
+    for k in range(len(seq)):
+        if seq[k] == 0:
+            empty = empty + [k]
+    return empty
+
     """
     What comes in: A non-empty sequence of integers.
     What goes out: Returns a list of integers,
@@ -354,7 +376,7 @@ def practice_problem3c(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -409,6 +431,7 @@ def run_test_practice_problem3d():
 
 
 def practice_problem3d(sequence):
+
     """
     What comes in: A sequence of integers.
     What goes out: Returns the first (leftmost) place (index)
@@ -436,31 +459,42 @@ def practice_problem3d(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
-
+    testie = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            testie = testie + [k]
+    if len(testie) > 0:
+        return testie[0]
+    else:
+        return -1
 
     ####################################################################
-    # TODO: 6. Just ABOVE this TODO, you should have implemented
+    # DONE: 6. Just ABOVE this doen, you should have implemented
     #     a solution for the   practice_problem3d   function.
     #     Here, put ANOTHER solution, as follows:
     #
-    #       -- Your FIRST solution (ABOVE this TODO)
+    #       -- Your FIRST solution (ABOVE this done)
     #            should be a solution that IGNORES
     #              practice_problem3c (the previous problem).
     #
-    #       -- Your SECOND solution (BELOW this TODO)
+    #       -- Your SECOND solution (BELOW this done)
     #            should be a solution that USES (calls)
     #              practice_problem3c.
     #
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
-
+    seq = practice_problem3c(sequence)
+    if len(seq) > 0:
+        return seq[0]
+    else:
+        return -1
 
 def run_test_practice_problem3e():
     """ Tests the    practice_problem3e    function. """
@@ -507,6 +541,11 @@ def run_test_practice_problem3e():
 
 
 def practice_problem3e(sequence):
+    sum = 0
+    for k in range(len(sequence)):
+        if k % 2 == 0:
+            sum = sum + sequence[k]
+    return sum
     """
     What comes in:
       A sequence of numbers.
@@ -522,7 +561,7 @@ def practice_problem3e(sequence):
       :type sequence: list(float)    or tuple(float)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
